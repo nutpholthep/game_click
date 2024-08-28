@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="h-10 overflow-hidden mt-5">
+          <h2 class="text-center fs-1" id="text-love">รักเค้าไหม ???</h2>
+          <img src="./pic/lovepost1.jpg" alt="lovecartoon" id="love_pic01" width="500" height="500"/>
+        </div>
+        <div class="">
+          <button id="btn-no" class="btn btn-danger btn-lg px-5 py-3" onclick="sayNo(event)">ไม่รัก</button>
+          <!-- <button id="btn-no" class="btn btn-danger btn-lg px-5 py-3" onclick="sayNo(this)" onmousemove="changeImg()" onmouseout="changeImgBe()">ไม่รัก</button> -->
+          <button class="btn btn-success btn-lg px-5 py-3 ms-5" onmousemove="love()" onmouseout="changeImgBe()" onclick="showText()">รัก</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let logo = document.getElementById("love_pic01");
+      // logo.style.display = "none"
+      function changeImg(e) {
+        let img = logo 
+        let imgAttr = img.src = "./pic/nopic01.jpg"
+        
+        
+      }
+
+      function changeImgBe(e) {
+        let img = logo 
+        let imgAttr = img.src = "./pic/lovepost1.jpg"
+          
+      }
+
+      function love (){
+        let img = logo 
+        let imgAttr = img.src = "./pic/love02.jpg"
+          
+      }
+
+      function showText(){
+        let text = document.getElementById("text-love")
+        let img = logo 
+        let imgAttr = img.src = "./pic/love03.jpg"
+        text.innerText = "เค้ารักเธอ เหมือนกัน"
+        text.style.fontSize = "xx-large";
+      }
+
+      function sayNo(e) {
+    let btn_no = document.getElementById("btn-no");
+    let currentWidth = btn_no.offsetWidth; // ได้ขนาดกว้างปัจจุบันของปุ่ม
+    let currentHeight = btn_no.offsetHeight; // ได้ขนาดสูงปัจจุบันของปุ่ม
+
+    // ตรวจสอบว่าขนาดของปุ่มมีค่ามากกว่า 10 พิกเซลหรือไม่ เพื่อป้องกันไม่ให้ค่าติดลบ
+    if (currentWidth > 50 && currentHeight > 50) {
+        btn_no.style.width = (currentWidth - 10) + "px"; // ลดขนาดกว้างของปุ่มลง 10 พิกเซล
+        btn_no.style.height = (currentHeight - 10) + "px"; // ลดขนาดสูงของปุ่มลง 10 พิกเซล
+    } else {
+        // ถ้าขนาดของปุ่มน้อยกว่าหรือเท่ากับ 10 พิกเซล ให้หยุดลดขนาด
+        let text = document.getElementById("text-love")
+        text.innerText = "โมโหแล้วนะ รักเค้าเดี๋ยวนี้!!!!"
+        text.style.fontSize = "xx-large";
+        let img = logo 
+        let imgAttr = img.src = "./pic/angry.jpg"
+       btn_no.style.display ="none"
+    }
+}
+
+    </script>
+  </body>
+</html>
